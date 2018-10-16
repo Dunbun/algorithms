@@ -1,0 +1,97 @@
+﻿<html>
+<head></head>
+
+<body bgcolor=#A0522D>
+
+<script  language="javascript">
+    var count = 0;
+    
+        LineItem= new Object();
+        LineItem.productName = '';
+        LineItem.productName2 = '';
+        function literu(a){
+                     var length = a.length;
+                     LineItem.productName = a;
+                     for (var i = 0; i < length; i++) {
+                         if (isNaN(LineItem.productName[i])==false)
+                         { count++; }
+                     }
+                        
+                     if (count == 0) {
+                         alert('There is no numbers');
+                     }
+                     else
+                         alert('There is numbers !');
+                     count = 0;
+                     };
+     function email() {
+         
+         var length = document.getElementById('amail').value.length;
+          LineItem.productName = document.getElementById('amail').value;
+         for (var i = 0; i < length; i++) {
+             if (LineItem.productName[i] == '@')
+             { count++; }
+         }
+         if (count == 0) {
+             alert('There is no @');
+         }
+         else
+         { alert('There is @'); }
+         count = 0;
+     }
+
+     function literu1(a) {
+
+         var length = a.length;
+         if (length != 5)
+             alert("the length of line !=5");
+             
+         LineItem.productName = a;
+         for (var i = 0; i < length; i++) {
+             if (isNaN(LineItem.productName[i]) == false)
+             { count++; }
+         }
+         if (count != 5)
+             alert("there are only "+count+" numbers"+", we need - 5" );
+
+         count = 0;
+     }
+     function counter(a) {
+         var length = a.length;
+         LineItem.productName = a;
+         for (var i = 0; i < length; i++) {
+             if (LineItem.productName[i] == '0' ||LineItem.productName[i] =='1') {
+                 LineItem.productName2 =LineItem.productName2+i;
+                 count++;
+                
+             }
+         }
+
+         alert(LineItem.productName2);
+         count = 0;
+         LineItem.productName2 = '';
+     }
+     
+    
+</script>
+<form align=center >
+Ім'я:
+<input  type=text  id="pwd"    onchange="literu(document.getElementById('pwd').value)" >
+<p>Прізвище:
+<input size=15 id="Text1"  onchange="literu(document.getElementById('Text1').value)" >
+<p>Адреса:
+<input size=15 id="Text2" >
+<p>Місто:
+<input size=15 id="lol" >
+<p>Країна:
+<input size=15 />
+<p>Поштовий індекс:
+<input size=15 id='text' onchange="literu1(document.getElementById('text').value)" />
+<p>e-mail:
+<input size=15 id='amail' onchange="email()"  />
+<p>
+
+</form>
+</body>
+ </html>
+    

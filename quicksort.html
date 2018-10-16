@@ -1,0 +1,141 @@
+<html>
+<body bgcolor=#9ACD32>
+<script language=javascript>  
+   
+    var list = [];
+    var leng;
+    var changinglist = [];
+    var times=0;
+    function changing() {
+        var count2 = times - 1;
+        var count = 0;
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = changinglist[count];
+            for (var i = 0; i < leng; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(changinglist[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 500);
+    }
+
+    
+    function show()
+    {
+        
+        leng = document.getElementById('space').value.length;
+        
+        if (leng < 10)
+            for (var i = leng+1; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+       
+        for (var i = 0; i < leng; i++) {
+            list[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list[i]) * 10;
+        }
+       
+    }
+
+
+    function stop(seconds) {
+        var d = new Date();
+        var time, time2 = 0;
+        var timer;
+        time = d.getSeconds() + seconds;
+        while (time2 == 0) {
+            timer = new Date().getSeconds();
+            if (time == timer) {
+                time2 = 1;
+            }
+        }
+    }
+   
+
+    function quicksort(low, high) {
+         
+        var i = low;
+        var j = high;
+      
+        var middle = list[Math.round((low+high)/2)];
+
+        
+        var tmp = 0;
+       
+        do {
+
+            while (list[i] > middle)
+                i++;
+            while (list[j] < middle)
+                j--;
+            if (i <= j)
+            {
+                tmp = list[i];
+                list[i] = list[j];
+                list[j] = tmp;
+                i++;
+                j--;
+                changinglist[times] = list.slice();
+                times++;
+            }
+        } while (i < j);
+        if (low < j) quicksort(low, j);
+        if (i <high) quicksort(i, high);
+        
+    }
+
+
+
+
+</script>
+<table    align=center cellspacing='0'  cellpadding='0'  border=0  bgcolor=white >
+<tr>
+<td valign=bottom>
+<input id="1" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="2" type=text  disabled style="height:100 ; width:10; vertical-align:bottom "/></td>
+<td valign=bottom>
+<input id="3" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="4" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="5" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="6" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="7" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="8" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="9" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="10" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+</tr>
+</table>
+<br />
+<input type=text   onchange="show()" id='space' maxlength=10/>
+<input   value='begin sorting' type=button onclick="quicksort(0,9)" ondblclick="changing()" />
+<img src= "qsor.png"  width="35%" height="70%" align=right>
+
+<h3 align=center>
+Quicksort
+
+Quicksort is a fast sorting algorithm, which is used not only for educational purposes, but widely applied in practice. On the average, it has O(n log n) complexity, making quicksort suitable for sorting big data volumes. The idea of the algorithm is quite simple and once you realize it, you can write quicksort as fast as bubble sort.
+
+Algorithm
+
+The divide-and-conquer strategy is used in quicksort. Below the recursion step is described:
+Choose a pivot value. We take the value of the middle element as pivot value, but it can be any value, which is in range of sorted values, even if it doesn't present in the array.
+Partition. Rearrange elements in such a way, that all elements which are lesser than the pivot go to the left part of the array and all elements greater than the pivot, go to the right part of the array. Values equal to the pivot can stay in any part of the array. Notice, that array may be divided in non-equal parts.
+Sort both parts. Apply quicksort algorithm recursively to the left and the right parts.
+Partition algorithm in detail
+
+There are two indices i and j and at the very beginning of the partition algorithm i points to the first element in the array and j points to the last one. Then algorithm moves i forward, until an element with value greater or equal to the pivot is found. Index j is moved backward, until an element with value lesser or equal to the pivot is found. If i ≤ j then they are swapped and i steps to the next position (i + 1), j steps to the previous one (j - 1). Algorithm stops, when i becomes greater than j.
+
+After partition, all values before i-th element are less or equal than the pivot and all values after j-th element are greater or equal to the pivot.
+</h3>
+
+</body>
+</html>

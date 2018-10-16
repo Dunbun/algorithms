@@ -1,0 +1,584 @@
+<html>
+<body>
+<script language=javascript>  
+   
+    var list = [];
+    var leng;
+    var changinglist = [];
+    var times=0;
+    function changing() {
+        var count2 = times - 1;
+        var count = 0;
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = changinglist[count];
+            for (var i = 0; i < leng; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(changinglist[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 500);
+    }
+
+    
+    function show()
+    {
+        
+        leng = document.getElementById('space').value.length;
+        
+        if (leng < 10)
+            for (var i = leng+1; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+       
+        for (var i = 0; i < leng; i++) {
+            list[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list[i]) * 10;
+        }
+       
+    }
+
+
+    function stop(seconds) {
+        var d = new Date();
+        var time, time2 = 0;
+        var timer;
+        time = d.getSeconds() + seconds;
+        while (time2 == 0) {
+            timer = new Date().getSeconds();
+            if (time == timer) {
+                time2 = 1;
+            }
+        }
+    }
+    ////////////////////////////
+    function interpolationsearch() {
+
+
+        var list2 = [];
+        var begin = 0;
+        var len = document.getElementById('space').value.length;
+        var end = len - 1;
+        var mid;
+        var swap;
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+
+      
+
+
+
+
+
+        search = list2[4];
+        var i = 1000;
+      
+        refreshIntervalId = setInterval(function () {
+            
+
+            
+
+            //�� ��������� ������������� ����� 
+            mid = Math.floor((end - begin)*(list2[begin] - search) / (list2[begin] - list2[end]));
+            if (end - begin == 1 && list2[end] == search) {
+                document.getElementById('' + (end + 1)).style.backgroundColor = "red";
+                for (var i = 1; i <= len; i++)
+                    if(i!=end-1)
+                        document.getElementById('' + i).style.backgroundColor = "black";
+
+
+
+            }
+            for (var i = 1; i <= len; i++)
+                document.getElementById('' + i).style.backgroundColor = "black";
+            for (var i = begin + 1; i <= end + 1 ; i++)
+                document.getElementById('' + i).style.backgroundColor = "blue";
+
+
+
+
+            document.getElementById('' + (mid + 1)).style.backgroundColor = "red";
+            if (end - begin == 1 && list2[end] == search) {
+                document.getElementById('' + (end + 1)).style.backgroundColor = "red";
+                document.getElementById('' + (end )).style.backgroundColor = "black";
+            }
+
+            if (list2[mid] > search)
+                begin = mid;
+            if (list2[mid] <= search)
+                end = mid;
+            if (end - begin == 1 && i > 100)
+                i = 2;
+            i--;
+
+            if (i == 0 ) {
+                clearInterval(refreshIntervalId);
+            }
+
+        }, 500);
+
+
+      
+        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function binarysearch() {
+
+        var list2 = [];
+        var begin = 0;
+        var len = document.getElementById('space').value.length;
+        var end = len - 1;
+        var mid;
+        var swap;
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+
+      
+
+
+
+
+
+        search = list2[len-1];
+        var i = 1000;
+      
+        refreshIntervalId = setInterval(function () {
+            
+
+            
+
+            //�� ��������� ������������� ����� 
+            mid = Math.floor((end + begin) / 2);
+            if (end - begin == 1 && list2[end] == search) {
+                document.getElementById('' + (end + 1)).style.backgroundColor = "red";
+                for (var i = 1; i <= len; i++)
+                    if(i!=end-1)
+                    document.getElementById('' + i).style.backgroundColor = "black";
+
+
+
+            }
+            for (var i = 1; i <= len; i++)
+                document.getElementById('' + i).style.backgroundColor = "black";
+            for (var i = begin + 1; i <= end + 1 ; i++)
+                document.getElementById('' + i).style.backgroundColor = "blue";
+
+
+
+
+            document.getElementById('' + (mid + 1)).style.backgroundColor = "red";
+            if (end - begin == 1 && list2[end] == search) {
+                document.getElementById('' + (end + 1)).style.backgroundColor = "red";
+                document.getElementById('' + (end )).style.backgroundColor = "black";
+            }
+
+            if (list2[mid] > search)
+                begin = mid;
+            if (list2[mid] <= search)
+                end = mid;
+            if (end - begin == 1 && i > 100)
+                i = 2;
+            i--;
+
+            if (i == 0 ) {
+                clearInterval(refreshIntervalId);
+            }
+
+        }, 500);
+
+
+      
+        
+
+    }
+
+
+    
+
+
+
+    function linesearch() {
+      
+       
+
+        var list2 = [];
+        var min=0;
+        var len = document.getElementById('space').value.length;
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+
+        var count2 = len;
+        var count=1
+        document.getElementById('' + (min + 1)).style.backgroundColor = "red";
+        refreshIntervalId = setInterval(function () {
+            if (count == 10)
+                document.getElementById('10').style.backgroundColor = "black";
+
+
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+           
+           
+            if (list2[min] > list2[count]) {
+                document.getElementById('' + (min+1)).style.backgroundColor = "black";
+                min = count;
+
+            }
+            count++;
+            document.getElementById('' + (min + 1)).style.backgroundColor = "red";
+           document.getElementById('' + (count+1)).style.backgroundColor = "blue";
+           if (count != min+1)
+               document.getElementById('' + (count)).style.backgroundColor = "black";
+
+           
+         
+        }, 500);
+
+        
+      //  for (var i = 1; i < len; i++)
+        //    if (list2[min] > list2[i])
+          //      min = i;
+
+
+
+
+
+
+           
+        
+
+
+
+       // alert(min);
+
+    }
+
+
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////
+
+
+
+
+    function shellsort() {
+        var list2 = [];
+        var actions = [];
+        var changing = 0;
+        var count, count2;
+        var len = document.getElementById('space').value.length;
+        var tmp;
+        var j;
+        var step = Math.floor(len / 2);
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+        while (step != 0) {
+            for (var i = step; i < len; i++) {
+                tmp = list2[i];
+
+                for (j = i - step; j >= 0 && (list2[j] < tmp) ; j = j - step) {
+                    list2[j + step] = list2[j];
+
+                }
+                list2[j + step] = tmp;
+
+                  actions[changing] = list2.slice();
+                changing++;
+            }
+            step = Math.floor(step / 2);
+            
+        }
+        
+        count2 = changing - 1;
+        count = 0;
+        
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = actions[count];
+            for (var i = 0; i < len; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 200);
+
+    }
+
+
+
+    function quicksort(low, high) {
+         
+        var i = low;
+        var j = high;
+      
+        var middle = list[Math.round((low+high)/2)];
+
+        
+        var tmp = 0;
+       
+        do {
+
+            while (list[i] > middle)
+                i++;
+            while (list[j] < middle)
+                j--;
+            if (i <= j)
+            {
+                tmp = list[i];
+                list[i] = list[j];
+                list[j] = tmp;
+                i++;
+                j--;
+                changinglist[times] = list.slice();
+                times++;
+            }
+        } while (i < j);
+        if (low < j) quicksort(low, j);
+        if (i <high) quicksort(i, high);
+        
+    }
+
+
+
+
+
+
+    function insertion() {
+        var list2 = [];
+        var actions = [];
+        var changing = 0;
+        var count,count2;
+        var len = document.getElementById('space').value.length;
+        var tmp;
+        var j;
+
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+
+        for (var i = 1; i < len; i++) {
+            tmp = list2[i];
+
+            for (j = i - 1; j >= 0 && (list2[j] < tmp) ; j--) {
+                list2[j + 1] = list2[j];
+                
+            }
+            list2[j + 1] = tmp;
+            actions[changing] = list2.slice();
+            changing++;
+        }
+
+        
+        count2 = changing - 1;
+        count = 0;
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = actions[count];
+            for (var i = 0; i < len; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 500);
+
+    }
+
+    function choose() {
+        var max;
+        var changing=0;
+        var count = 0, count2;
+        var bigger = 0;
+        var index;
+        var list2 = [];
+        var actions = [];
+        var len = document.getElementById('space').value.length;
+
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+        max=list2[0];
+
+        for (var i = 0; i < len - 1; i++)
+            {
+            for (var j = count; j < len-1; j++)
+                if (max < list2[j + 1])
+                {
+                    max = list2[j + 1];
+                    index = j + 1;
+                    bigger = 1;
+                }
+            if (bigger == 1) {
+                list2[index] = list2[count];
+                list2[count] = max;
+                actions[changing] = list2.slice();
+                changing++;
+            }
+            count++;
+            bigger = 0;
+            max = list2[count];
+           
+            }
+        count2=changing-1; 
+        count = 0;
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = actions[count];
+            for (var i = 0; i < len; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 1000);
+    }
+
+
+    
+
+    function buble() {
+        var count = 0,count2;
+        var actions = [];
+        var swap;
+        var list2 = [];
+        var lis = [];
+        var len = document.getElementById('space').value.length;
+        if(len<10)
+            for (var i = len; i <= 10;i++)
+                document.getElementById('' + (i)).style.display = 'none';
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i+1)).style.height = Number(list2[i]) * 10;
+        }
+       
+        for (var i = 0; i < len-1; i++) {
+            for (var j = 0; j < len-1; j++) {
+                if (list2[j] < list2[j + 1]) {
+                  
+                    swap = list2[j];
+                    list2[j] = list2[j + 1];
+                    list2[j + 1] = swap;
+                    actions[count] = list2.slice();
+                    count++;
+                    
+                }
+
+            }
+        }
+       
+        count2 = count - 1;
+        count = 0;
+        refreshIntervalId=setInterval(function () {
+            document.getElementById('space').value = actions[count];
+            for (var i = 0; i < len; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 200);
+      
+    }
+          
+            
+          
+
+</script>
+<table    align=center cellspacing='0'  cellpadding='0'  border=0  bgcolor=white >
+<tr>
+<td valign=bottom>
+<input id="1" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="2" type=text  disabled style="height:100 ; width:10; vertical-align:bottom "/></td>
+<td valign=bottom>
+<input id="3" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="4" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="5" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="6" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="7" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="8" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="9" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="10" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+</tr>
+</table>
+<br />
+<input type=text   onchange="show()" id='space' maxlength=10/>
+<input   value='begin sorting' type=button onclick="linesearch() />
+</body>
+</html>

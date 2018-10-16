@@ -1,0 +1,164 @@
+<html>
+<body bgcolor=#9ACD32>
+    <script language=javascript>
+
+
+        function insertion() {
+            var list2 = [];
+            var actions = [];
+            var changing = 0;
+            var count, count2;
+           // var len = document.getElementById('space').value.length;
+            var tmp;
+            var j;
+            var len = 0;
+            for (var i = 21; i <= 40; i++) {
+                if (document.getElementById('' + i).value != '')
+                    len++;
+                else
+                    break;
+            }
+
+            if (len < 20)
+                for (var i = len + 1; i <= 20; i++)
+                    document.getElementById('' + (i)).style.display = 'none';
+
+
+
+            for (var i = 0; i <len; i++) {
+                list2[i] = document.getElementById('' + (21 + i)).value;
+                document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+
+            }
+            
+            for (var i = 1; i <len; i++) {
+                tmp = list2[i];
+                
+                for (j = i - 1; j >= 0 && Number(list2[j]) < tmp ; j--) {
+                    list2[j + 1] = list2[j];
+
+                }
+                list2[j + 1] = tmp;
+                actions[changing] = list2.slice();
+                changing++;
+            }
+            alert(list2);
+
+            //count2 = changing - 1;
+            count = 0;
+
+            
+
+            refreshIntervalId = setInterval(function () {
+                //document.getElementById('space').value = actions[count];
+                for (var i = 0; i <= len; i++) {
+                    document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+                }
+                count++;
+                //if (count > count2) {
+                 //   clearInterval(refreshIntervalId);
+               // }
+            }, 500);
+
+        }
+
+
+
+
+    </script>
+    <table align=center cellspacing='0' cellpadding='0' border=0 bgcolor=white>
+        <tr>
+            <td valign=bottom>
+                <input id="1" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="2" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="3" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="4" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="5" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="6" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="7" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="8" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="9" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="10" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="11" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="12" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="13" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="14" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="15" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="16" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="17" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="18" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="19" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="20" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type=text id='21' maxlength="2" style=" width:30; " />
+    <input type=text id='22' maxlength="2" style=" width:30; " />
+    <input type=text id='23' maxlength="2" style=" width:30; " />
+    <input type=text id='24' maxlength="2" style=" width:30; " />
+    <input type=text id='25' maxlength="2" style=" width:30; " />
+    <input type=text id='26' maxlength="2" style=" width:30; " />
+    <input type=text id='27' maxlength="2" style=" width:30; " />
+    <input type=text id='28' maxlength="2" style=" width:30; " />
+    <input type=text id='29' maxlength="2" style=" width:30; " />
+    <input type=text id='30' maxlength="2" style=" width:30; " />
+    <input type=text id='31' maxlength="2" style=" width:30; " />
+    <input type=text id='32' maxlength="2" style=" width:30; " />
+    <input type=text id='33' maxlength="2" style=" width:30; " />
+    <input type=text id='34' maxlength="2" style=" width:30; " />
+    <input type=text id='35' maxlength="2" style=" width:30; " />
+    <input type=text id='36' maxlength="2" style=" width:30; " />
+    <input type=text id='37' maxlength="2" style=" width:30; " />
+    <input type=text id='38' maxlength="2" style=" width:30; " />
+    <input type=text id='39' maxlength="2" style=" width:30; " />
+    <input type=text id='40' maxlength="2" style=" width:30; " />
+
+    <input value='begin sorting' type=button onclick="insertion()" />
+    <img src= "insertion.png"  width="35%" height="70%" align=right>
+
+<h3 align=center>
+Insertion sort is very similar to selection sort. As in selection sort, after k passes through the array, the first k elements are in sorted order. For selection sort these are the k smallest elements, while in insertion sort they are whatever the first k elements were in the unsorted array. Insertion sort's advantage is that it only scans as many elements as needed to determine the correct location of the k+1st element, while selection sort must scan all remaining elements to find the absolute smallest element.
+Assuming the k+1st element's rank is random, insertion sort will on average require shifting half of the previous k elements, while selection sort always requires scanning all unplaced elements. So for unsorted input, insertion sort will usually perform about half as many comparisons as selection sort. If the input array is reverse-sorted, insertion sort performs as many comparisons as selection sort. If the input array is already sorted, insertion sort performs as few as n-1 comparisons, thus making insertion sort more efficient when given sorted or "nearly sorted" arrays.
+While insertion sort typically makes fewer comparisons than selection sort, it requires more writes because the inner loop can require shifting large sections of the sorted portion of the array. In general, insertion sort will write to the array O(n2) times, whereas selection sort will write only O(n) times. For this reason selection sort may be preferable in cases where writing to memory is significantly more expensive than reading, such as with EEPROM or flash memory.
+</h3>
+</body>
+</html>

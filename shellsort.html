@@ -1,0 +1,178 @@
+<html>
+<body bgcolor=#9ACD32>
+<script language=javascript>  
+   
+    var list = [];
+    var leng;
+    var changinglist = [];
+    var times=0;
+    function changing() {
+        var count2 = times - 1;
+        var count = 0;
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = changinglist[count];
+            for (var i = 0; i < leng; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(changinglist[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 500);
+    }
+
+    
+    function show()
+    {
+        
+        leng = document.getElementById('space').value.length;
+        
+        if (leng < 10)
+            for (var i = leng+1; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+       
+        for (var i = 0; i < leng; i++) {
+            list[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list[i]) * 10;
+        }
+       
+    }
+
+
+    function stop(seconds) {
+        var d = new Date();
+        var time, time2 = 0;
+        var timer;
+        time = d.getSeconds() + seconds;
+        while (time2 == 0) {
+            timer = new Date().getSeconds();
+            if (time == timer) {
+                time2 = 1;
+            }
+        }
+    }
+   
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    ///////////////////////////////////////
+
+
+
+
+    function shellsort() {
+        var list2 = [];
+        var actions = [];
+        var changing = 0;
+        var count, count2;
+        var len = document.getElementById('space').value.length;
+        var tmp;
+        var j;
+        var step = Math.floor(len / 2);
+        if (len < 10)
+            for (var i = len; i <= 10; i++)
+                document.getElementById('' + (i)).style.display = 'none';
+
+        for (var i = 0; i < len; i++) {
+            list2[i] = document.getElementById('space').value[i];
+            document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+        }
+        while (step != 0) {
+            for (var i = step; i < len; i++) {
+                tmp = list2[i];
+
+                for (j = i - step; j >= 0 && (list2[j] < tmp) ; j = j - step) {
+                    list2[j + step] = list2[j];
+
+                }
+                list2[j + step] = tmp;
+
+                  actions[changing] = list2.slice();
+                changing++;
+            }
+            step = Math.floor(step / 2);
+            
+        }
+        
+        count2 = changing - 1;
+        count = 0;
+        
+
+        refreshIntervalId = setInterval(function () {
+            document.getElementById('space').value = actions[count];
+            for (var i = 0; i < len; i++) {
+                document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+            }
+            count++;
+            if (count > count2) {
+                clearInterval(refreshIntervalId);
+            }
+        }, 400);
+
+    }
+
+
+
+   
+          
+            
+          
+
+</script>
+<table    align=center cellspacing='0'  cellpadding='0'  border=0  bgcolor=white >
+<tr>
+<td valign=bottom>
+<input id="1" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="2" type=text  disabled style="height:100 ; width:10; vertical-align:bottom "/></td>
+<td valign=bottom>
+<input id="3" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="4" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="5" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="6" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="7" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="8" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="9" type=text  disabled style="height:100; width:10; vertical-align:bottom " /></td>
+<td valign=bottom>
+<input id="10" type=text  disabled style="height:100 ; width:10; vertical-align:bottom " /></td>
+</tr>
+</table>
+<br />
+<input type=text   onchange="show()" id='space' maxlength=10/>
+<input   value='begin sorting' type=button onclick="shellsort()"/>
+<img src= "shellsort.png"  width="35%" height="70%" align=right>
+
+<h3 align=center>
+Shellsort is a generalization of insertion sort that allows the exchange of items that are far apart. The idea is to arrange the list of elements so that, starting anywhere, considering every hth element gives a sorted list. Such a list is said to be h-sorted. Equivalently, it can be thought of as h interleaved lists, each individually sorted.[6] Beginning with large values of h, this rearrangement allows elements to move long distances in the original list, reducing large amounts of disorder quickly, and leaving less work for smaller h-sort steps to do.[7] If the file is then k-sorted for some smaller integer k, then the file remains h-sorted. Following this idea for a decreasing sequence of h values ending in 1 is guaranteed to leave a sorted list in the end.[6]
+</h3>
+</body>
+</html>

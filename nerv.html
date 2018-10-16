@@ -1,0 +1,113 @@
+<html>
+<body >
+<script language=javascript>  
+interval=500;
+count2=1;
+count1=count2;
+count3=2;
+count4=1;
+count=0;
+//var list="123";
+//var count=0;
+//var count2=1;
+function check(){
+var value;
+for(var i=1;i<=10;i++)
+    value=''+document.getElementById(''+i).value;
+
+if(document.getElementById('num').value!=value)
+ alert("Wrong!");
+ else
+alert("GOOD!");
+
+
+}
+
+
+function next(){
+
+count1++;
+interval=interval-40;
+nerv();
+
+}
+
+function nerv2(){
+if(count==document.getElementById('num').value[count1])
+    count4++;
+ else{
+//alert('NOOB'+count+count1+count4);
+count4++;
+}//count1++;
+//nerv();
+count=0;
+
+}
+
+function nerv(){
+    
+
+
+count3=count4+1;
+//var count=0;
+
+  refreshIntervalId = setInterval(function () {
+    if(count4==count3){
+         clearInterval(refreshIntervalId);
+           }
+
+      value= document.getElementById('num').value;
+        document.getElementById(''+count1).value=count;
+        count++;
+        if(count==10)
+            count=0;
+        //if(count==value)
+           // alert(count2);
+           
+        
+        
+        }, interval);
+        
+       refresh=setInterval(function () {
+        if(count1>1 && document.getElementById(''+(count1-1).value != document.getElementById('num').value[count-1] ))
+        alert();
+
+         if(count4==count3){
+         clearInterval(refreshIntervalId);
+          clearInterval(refresh);
+
+           }
+ }, 10);
+
+}
+
+
+
+</script>
+
+<table align=center cellspacing='0' cellpadding='0' border=0 bgcolor=white>
+        <tr>
+<td>
+Enter phone number<p>
+<input  type="text" id='num'>
+<input type="button" onclick="nerv()" value='start'>
+<input type="button" onclick="nerv2()" value='choose'>
+<input type="button" onclick="next()" value='next'>
+<input type="button" onclick="check()" value='check' >
+<p>
+<input  type="text" id='1'   style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='2' style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='3' style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='4' style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='5' style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='6' style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='7'  style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='8'  style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='9'  style="height:100; font-size:100px; width:60; ">
+<input  type="text" id='10'  style="height:100; font-size:100px; width:60; ">
+</td>
+        </tr>
+</table>
+
+</body>
+</html>

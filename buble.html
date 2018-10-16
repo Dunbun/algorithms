@@ -1,0 +1,189 @@
+<html>
+<body bgcolor=#9ACD32>
+    <script language=javascript>
+
+
+        function buble() {
+            var count = 0, count2;
+            var actions = [];
+            var swap;
+            var list2 = [];
+            var lis = [];
+           
+            var len=0;
+            
+            
+            for (var i = 21; i <= 40; i++) {
+                if (document.getElementById('' + i).value != '')
+                len++;
+                else
+                break;
+            }
+           
+            if (len < 20)
+              for (var i = len+1; i <= 20; i++)
+                 document.getElementById('' + (i)).style.display = 'none';
+
+     
+            for (var i = 0; i < len; i++) {
+                list2[i] = document.getElementById(''+(21+i)).value;
+                document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+                
+            }
+     
+            for (var i = 0; i < len ; i++) {
+                for (var j = 0; j < len ; j++) {
+                    if (Number(list2[j]) < Number(list2[j + 1])) {
+
+                        swap = list2[j];
+                        list2[j] = list2[j + 1];
+                        list2[j + 1] = swap;
+                        actions[count] = list2.slice();
+                        count++;
+
+                    }
+
+                }
+            }
+
+            count2 = count - 1;
+            
+            alert("The number of changings = "+count);
+            alert(list2);
+            count=0;
+            refreshIntervalId = setInterval(function () {
+                
+                for (var i = 0; i <= len; i++) {
+                    document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+                }
+                count++;
+            //    if (count > count2) {
+              //      clearInterval(refreshIntervalId);
+                //}
+            }, 200);
+            
+            
+        }
+
+
+
+
+    </script>
+    <table align=center cellspacing='0' cellpadding='0' border=0 bgcolor=white>
+        <tr>
+            <td valign=bottom>
+                <input id="1" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="2" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="3" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="4" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="5" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="6" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="7" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="8" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="9" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="10" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="11" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="12" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="13" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="14" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="15" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="16" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="17" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="18" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="19" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="20" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type=text id='21' maxlength="2" style=" width:30; " />
+    <input type=text id='22' maxlength="2" style=" width:30; " />
+    <input type=text id='23' maxlength="2" style=" width:30; " />
+    <input type=text id='24' maxlength="2" style=" width:30; " />
+    <input type=text id='25' maxlength="2" style=" width:30; " />
+    <input type=text id='26' maxlength="2" style=" width:30; " />
+    <input type=text id='27' maxlength="2" style=" width:30; " />
+    <input type=text id='28' maxlength="2" style=" width:30; " />
+    <input type=text id='29' maxlength="2" style=" width:30; " />
+    <input type=text id='30' maxlength="2" style=" width:30; " />
+    <input type=text id='31' maxlength="2" style=" width:30; " />
+    <input type=text id='32' maxlength="2" style=" width:30; " />
+    <input type=text id='33' maxlength="2" style=" width:30; " />
+    <input type=text id='34' maxlength="2" style=" width:30; " />
+    <input type=text id='35' maxlength="2" style=" width:30; " />
+    <input type=text id='36' maxlength="2" style=" width:30; " />
+    <input type=text id='37' maxlength="2" style=" width:30; " />
+    <input type=text id='38' maxlength="2" style=" width:30; " />
+    <input type=text id='39' maxlength="2" style=" width:30; " />
+    <input type=text id='40' maxlength="2" style=" width:30; " />
+
+    <input value='begin sorting' type=button onclick="buble()"  />
+<img src= "buble.png"  width="40%" height="70%" align=left>
+
+<h3 align=center>
+Bubble Sort
+
+Bubble sort is a simple and well-known sorting algorithm. It is used in practice once in a blue moon and its main application is to make an introduction to the sorting algorithms. Bubble sort belongs to O(n2) sorting algorithms, which makes it quite inefficient for sorting large data volumes. Bubble sort is stable and adaptive.
+
+Algorithm
+
+Compare each pair of adjacent elements from the beginning of an array and, if they are in reversed order, swap them.
+If at least one swap has been done, repeat step 1.
+You can imagine that on every step big bubbles float to the surface and stay there. At the step, when no bubble moves, sorting stops. Let us see an example of sorting an array to make the idea of bubble sort clearer.
+
+Example. Sort {5, 1, 12, -5, 16} using bubble sort.
+
+Bubble sort example
+
+Complexity analysis
+
+Average and worst case complexity of bubble sort is O(n2). Also, it makes O(n2) swaps in the worst case. Bubble sort is adaptive. It means that for almost sorted array it gives O(n) estimation. Avoid implementations, which don't check if the array is already sorted on every step (any swaps made). This check is necessary, in order to preserve adaptive property.
+
+Turtles and rabbits
+
+One more problem of bubble sort is that its running time badly depends on the initial order of the elements. Big elements (rabbits) go up fast, while small ones (turtles) go down very slow. This problem is solved in the Cocktail sort.
+
+Turtle example. Thought, array {2, 3, 4, 5, 1} is almost sorted, it takes O(n2) iterations to sort an array. Element {1} is a turtle.
+</h3>
+
+
+</body>
+</html>

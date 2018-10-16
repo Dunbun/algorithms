@@ -1,0 +1,182 @@
+<html>
+<body bgcolor=#9ACD32>
+    <script language=javascript>
+
+     
+        function choose() {
+            var max;
+            var changing = 0;
+            var count = 0, count2;
+            var bigger = 0;
+            var index;
+            var list2 = [];
+            var actions = [];
+          //  var len = document.getElementById('space').value.length;
+            var len = 0;
+            for (var i = 21; i <= 40; i++) {
+                if (document.getElementById('' + i).value != '')
+                    len++;
+                else
+                    break;
+            }
+
+            if (len < 20)
+                for (var i = len + 1; i <= 20; i++)
+                    document.getElementById('' + (i)).style.display = 'none';
+
+
+            for (var i = 0; i < len; i++) {
+                list2[i] = document.getElementById('' + (21 + i)).value;
+                document.getElementById('' + (i + 1)).style.height = Number(list2[i]) * 10;
+
+            }
+
+            max =Number( list2[0]);
+
+            for (var i = 0; i <= len - 1; i++) {
+                for (var j = count; j <= len - 1; j++)
+                    if (max <Number( list2[j + 1])) {
+                        max = list2[j + 1];
+                        index = j + 1;
+                        bigger = 1;
+                    }
+
+                if (bigger == 1) {
+                    list2[index] = list2[count];
+                    list2[count] = max;
+                    actions[changing] = list2.slice();
+                    changing++;
+                }
+                count++;
+                bigger = 0;
+                max = list2[count];
+
+            }
+            count2 = changing - 1;
+            count = 0;
+            alert(list2);
+            refreshIntervalId = setInterval(function () {
+              //  document.getElementById('space').value = actions[count];
+                for (var i = 0; i < len; i++) {
+                    document.getElementById('' + (i + 1)).style.height = Number(actions[count][i]) * 10;
+                }
+                count++;
+                //if (count > count2) {
+                  //  clearInterval(refreshIntervalId);
+               // }
+            }, 500);
+        }
+
+
+
+
+
+    </script>
+    <table align=center cellspacing='0' cellpadding='0' border=0 bgcolor=white>
+        <tr>
+            <td valign=bottom>
+                <input id="1" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="2" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="3" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="4" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="5" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="6" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="7" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="8" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="9" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="10" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="11" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="12" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="13" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="14" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="15" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="16" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="17" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="18" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="19" type=text disabled style="height:100; width:10; vertical-align:bottom " />
+            </td>
+            <td valign=bottom>
+                <input id="20" type=text disabled style="height:100 ; width:10; vertical-align:bottom " />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type=text id='21' maxlength="2" style=" width:30; " />
+    <input type=text id='22' maxlength="2" style=" width:30; " />
+    <input type=text id='23' maxlength="2" style=" width:30; " />
+    <input type=text id='24' maxlength="2" style=" width:30; " />
+    <input type=text id='25' maxlength="2" style=" width:30; " />
+    <input type=text id='26' maxlength="2" style=" width:30; " />
+    <input type=text id='27' maxlength="2" style=" width:30; " />
+    <input type=text id='28' maxlength="2" style=" width:30; " />
+    <input type=text id='29' maxlength="2" style=" width:30; " />
+    <input type=text id='30' maxlength="2" style=" width:30; " />
+    <input type=text id='31' maxlength="2" style=" width:30; " />
+    <input type=text id='32' maxlength="2" style=" width:30; " />
+    <input type=text id='33' maxlength="2" style=" width:30; " />
+    <input type=text id='34' maxlength="2" style=" width:30; " />
+    <input type=text id='35' maxlength="2" style=" width:30; " />
+    <input type=text id='36' maxlength="2" style=" width:30; " />
+    <input type=text id='37' maxlength="2" style=" width:30; " />
+    <input type=text id='38' maxlength="2" style=" width:30; " />
+    <input type=text id='39' maxlength="2" style=" width:30; " />
+    <input type=text id='40' maxlength="2" style=" width:30; " />
+    <input value='begin sorting' type=button onclick="choose()" />
+<img src= "choose.png"  width="35%" height="70%" align=right>
+
+<h3 align=center>
+Selection Sort
+
+Selection sort is one of the O(n2) sorting algorithms, which makes it quite inefficient for sorting large data volumes. Selection sort is notable for its programming simplicity and it can over perform other sorts in certain situations (see complexity analysis for more details).
+
+Algorithm
+
+The idea of algorithm is quite simple. Array is imaginary divided into two parts - sorted one and unsorted one. At the beginning, sorted part is empty, while unsorted one contains whole array. At every step, algorithm finds minimal element in the unsorted part and adds it to the end of the sorted one. When unsorted part becomes empty, algorithm stops.
+
+When algorithm sorts an array, it swaps first element of unsorted part with minimal element and then it is included to the sorted part. This implementation of selection sort in not stable. In case of linked list is sorted, and, instead of swaps, minimal element is linked to the unsorted part, selection sort is stable.
+
+Let us see an example of sorting an array to make the idea of selection sort clearer.
+</h3>
+
+
+
+
+
+</body>
+</html>
